@@ -1,0 +1,6 @@
+.UICarouselFrameListItem {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  scroll-snap-align: start;
+}

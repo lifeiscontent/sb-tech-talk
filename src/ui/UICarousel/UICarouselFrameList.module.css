@@ -1,0 +1,7 @@
+.UICarouselFrameList {
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  margin: 0;
+  padding: 0;
+}

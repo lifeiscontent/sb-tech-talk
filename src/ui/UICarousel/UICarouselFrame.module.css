@@ -1,0 +1,4 @@
+.UICarouselFrame {
+  display: flex;
+  flex-direction: column;
+}

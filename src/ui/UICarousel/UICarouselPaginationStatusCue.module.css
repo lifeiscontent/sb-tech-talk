@@ -1,0 +1,16 @@
+.UICarouselPaginationStatusCue {
+  border-radius: 0.25em; /* 4 / 16 = 0.25 */
+  display: block;
+  height: 0.5em; /* 8 / 16 = 0.5 */
+  margin-left: 0.25em; /* 4 / 16 = 0.25 */
+  margin-right: 0.25em; /* 4 / 16 = 0.25 */
+  width: 0.5em; /* 8 / 16 = 0.5 */
+}
+
+.UICarouselPaginationStatusCue--inactive {
+  background-color: #cccccc;
+}
+
+.UICarouselPaginationStatusCue--active {
+  background-color: #61dafb;
+}
