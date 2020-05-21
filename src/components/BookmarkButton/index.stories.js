@@ -6,13 +6,15 @@ export default {
   component: BookmarkButton,
 };
 
-export const Renders = ({ children, onBookmark, canBookmark }) => (
-  <BookmarkButton onBookmark={onBookmark} canBookmark={canBookmark}>
-    {children}
-  </BookmarkButton>
-);
+export function Example({ children, onBookmark, canBookmark }) {
+  return (
+    <BookmarkButton onBookmark={onBookmark} canBookmark={canBookmark}>
+      {children}
+    </BookmarkButton>
+  );
+}
 
-Renders.story = {
+Example.story = {
   argTypes: {
     children: {
       defaultValue: "Bookmark",
@@ -21,7 +23,7 @@ Renders.story = {
       defaultValue: { value: false },
       control: {
         type: "options",
-        options: { 'true': { value: true }, 'false': { value: false } },
+        options: { true: { value: true }, false: { value: false } },
       },
     },
   },

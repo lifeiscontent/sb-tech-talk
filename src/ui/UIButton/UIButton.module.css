@@ -22,6 +22,11 @@
   color: #000000;
 }
 
+.UIButton--variant-primary:hover {
+  background-color: #ffffff;
+}
+
+
 /*
 .UIButton--variant-primary:hover:not(.UIButton--disabled) {
   background-color: #ffffff;

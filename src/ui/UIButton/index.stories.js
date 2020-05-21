@@ -6,13 +6,15 @@ export default {
   component: UIButton,
 };
 
-export const Renders = ({ children, onClick, variant, disabled }) => (
-  <UIButton onClick={onClick} variant={variant} disabled={disabled}>
-    {children}
-  </UIButton>
-);
+export function Example({ children, onClick, variant, disabled }) {
+  return (
+    <UIButton onClick={onClick} variant={variant} disabled={disabled}>
+      {children}
+    </UIButton>
+  );
+}
 
-Renders.story = {
+Example.story = {
   argTypes: {
     children: {
       defaultValue: "Button",

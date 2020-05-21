@@ -2,7 +2,7 @@
 
 describe("Carousel", function () {
   beforeEach(function () {
-    cy.visit("/iframe.html?id=components-carousel--renders");
+    cy.visit("/iframe.html?id=components-carousel--example");
   });
 
   it("should have totalPages cues", function () {
@@ -35,7 +35,7 @@ describe("Carousel", function () {
       cy.get('[data-cy="UICarouselPaginationAction"]').last().click();
     });
 
-    it("should have scrollLeft equal to the full width of the list", function () {
+    it("should have scrollLeft equal to the width of 5 items in the list", function () {
       cy.get('[data-cy="UICarouselFrameList"]')
         .should("have.prop", "scrollLeft")
         .and("eq", 960);
