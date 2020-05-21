@@ -87,7 +87,6 @@ export function Carousel(props) {
         left: listRef.current.scrollLeft + listRef.current.offsetWidth,
         behavior: "smooth",
       });
-
     }
   }
 

@@ -1,0 +1,29 @@
+.UIButton {
+  appearance: none;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  font-size: 1em; /* 16 / 16 = 1 */
+  padding-bottom: 0.625em; /* 10 / 16 = 0.625 */
+  padding-left: 1.5625em; /* 25 / 16 = 1.5625 */
+  padding-right: 1.5625em; /* 25 / 16 = 1.5625 */
+  padding-top: 0.625em; /* 10 / 16 = 0.625 */
+  transition: background-color 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.UIButton--disabled {
+  opacity: 0.3;
+}
+
+.UIButton--variant-primary {
+  background-color: #61dafb;
+  color: #000000;
+}
+
+/*
+.UIButton--variant-primary:hover:not(.UIButton--disabled) {
+  background-color: #ffffff;
+}
+*/
