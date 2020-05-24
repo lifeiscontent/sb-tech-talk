@@ -2,10 +2,10 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Example } from "./index.stories";
 
-let onBookmark;
-let canBookmark;
-
 describe("BookmarkButton", () => {
+  let onBookmark;
+  let canBookmark;
+
   beforeEach(() => {
     canBookmark = { value: false };
     onBookmark = jest.fn();

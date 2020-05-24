@@ -6,21 +6,30 @@ export default {
   component: UIButton,
 };
 
-export function Example({ children, onClick, variant, disabled }) {
+export function Example({
+  children,
+  disabled,
+  onClick,
+  pressed,
+  shape,
+  variant,
+}) {
   return (
-    <UIButton onClick={onClick} variant={variant} disabled={disabled}>
+    <UIButton
+      disabled={disabled}
+      onClick={onClick}
+      pressed={pressed}
+      shape={shape}
+      variant={variant}
+    >
       {children}
     </UIButton>
   );
 }
 
 Example.story = {
-  argTypes: {
-    children: {
-      defaultValue: "Button",
-    },
-    variant: {
-      defaultValue: "primary",
-    },
+  args: {
+    children: "Button",
+    variant: "primary",
   },
 };

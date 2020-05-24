@@ -3,32 +3,77 @@
   border-color: transparent;
   border-style: solid;
   border-width: 1px;
-  display: inline-block;
+  display: inline-flex;
   font-size: 1em; /* 16 / 16 = 1 */
   padding-bottom: 0.625em; /* 10 / 16 = 0.625 */
   padding-left: 1.5625em; /* 25 / 16 = 1.5625 */
   padding-right: 1.5625em; /* 25 / 16 = 1.5625 */
   padding-top: 0.625em; /* 10 / 16 = 0.625 */
-  transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out, opacity 0.2s ease-out,
+    box-shadow 0.2s ease-out;
   white-space: nowrap;
 }
 
-.UIButton--disabled {
-  opacity: 0.3;
+.UIButton--shape-rounded {
+  border-radius: 0.25em; /* 4 / 16 = 0.25 */
 }
 
-.UIButton--variant-primary {
-  background-color: #61dafb;
-  color: #000000;
+.UIButton--disabled {
+  opacity: 0.65;
+}
+
+.UIButton--variant-primary,
+.UIButton--variant-primary.UIButton--disabled,
+.UIButton--variant-primary.UIButton--disabled:hover,
+.UIButton--variant-primary.UIButton--disabled:focus,
+.UIButton--variant-primary.UIButton--disabled:active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #ffffff;
 }
 
 .UIButton--variant-primary:hover {
-  background-color: #ffffff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #ffffff;
 }
 
-
-/*
-.UIButton--variant-primary:hover:not(.UIButton--disabled) {
-  background-color: #ffffff;
+.UIButton--variant-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  outline: 0;
 }
-*/
+
+.UIButton--variant-primary:active,
+.UIButton--variant-primary.UIButton--pressed {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.UIButton--variant-secondary,
+.UIButton--variant-secondary.UIButton--disabled,
+.UIButton--variant-secondary.UIButton--disabled:hover,
+.UIButton--variant-secondary.UIButton--disabled:focus,
+.UIButton--variant-secondary.UIButton--disabled:active {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.UIButton--variant-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+  color: #fff;
+}
+
+.UIButton--variant-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+  outline: 0;
+}
+
+.UIButton--variant-secondary:active,
+.UIButton--variant-secondary.UIButton--pressed {
+  background-color: #545b62;
+  border-color: #4e555b;
+  color: #fff;
+}

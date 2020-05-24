@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "..";
 import { BookmarkButton } from ".";
 
 export default {
@@ -6,19 +7,22 @@ export default {
   component: BookmarkButton,
 };
 
-export function Example({ children, onBookmark, canBookmark }) {
+export function Example({ bookmarked, onBookmark, canBookmark }) {
   return (
-    <BookmarkButton onBookmark={onBookmark} canBookmark={canBookmark}>
-      {children}
+    <BookmarkButton
+      bookmarked={bookmarked}
+      onBookmark={onBookmark}
+      canBookmark={canBookmark}
+    >
+      <Icon name={bookmarked ? "s-bookmark-minus" : "r-bookmark-plus"} />
+      &nbsp;
+      {bookmarked ? "Remove Bookmark" : "Add Bookmark"}
     </BookmarkButton>
   );
 }
 
 Example.story = {
   argTypes: {
-    children: {
-      defaultValue: "Bookmark",
-    },
     canBookmark: {
       defaultValue: { value: false },
       control: {
