@@ -4,6 +4,9 @@ import { UIButton } from '.';
 export default {
   title: 'UI/Button',
   component: UIButton,
+  parameters: {
+    actions: { argTypesRegex: '^on.*' },
+  },
 };
 
 export function Example({

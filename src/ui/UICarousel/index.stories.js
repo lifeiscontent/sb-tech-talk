@@ -14,6 +14,7 @@ export default {
   title: 'UI/Carousel',
   component: UICarousel,
   parameters: {
+    actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
   subcomponents: {
@@ -27,7 +28,11 @@ export default {
   },
 };
 
-export function Example({ selectedIndex }) {
+export function Example({
+  onClickNextPage,
+  onClickPreviousPage,
+  selectedIndex,
+}) {
   return (
     <UICarousel>
       <UICarouselFrame>
@@ -40,7 +45,10 @@ export function Example({ selectedIndex }) {
         </UICarouselFrameList>
       </UICarouselFrame>
       <UICarouselPagination>
-        <UICarouselPaginationAction disabled={selectedIndex === 0}>
+        <UICarouselPaginationAction
+          disabled={selectedIndex === 0}
+          onClick={onClickPreviousPage}
+        >
           &larr;
         </UICarouselPaginationAction>
         <UICarouselPaginationStatus>
@@ -48,7 +56,10 @@ export function Example({ selectedIndex }) {
             <UICarouselPaginationStatusCue active={selectedIndex === i} />
           ))}
         </UICarouselPaginationStatus>
-        <UICarouselPaginationAction disabled={selectedIndex === 2}>
+        <UICarouselPaginationAction
+          disabled={selectedIndex === 2}
+          onClick={onClickNextPage}
+        >
           &rarr;
         </UICarouselPaginationAction>
       </UICarouselPagination>

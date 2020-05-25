@@ -5,6 +5,7 @@ import { BookmarkButton } from '.';
 export default {
   title: 'Components/BookmarkButton',
   component: BookmarkButton,
+  parameters: { actions: { argTypesRegex: '^on.*' } },
 };
 
 export function Example({ bookmarked, onBookmark, canBookmark }) {
