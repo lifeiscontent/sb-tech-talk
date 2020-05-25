@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./UICarousel.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './UICarousel.module.css';
 
 export function UICarousel(props) {
   return (

@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./UICarouselPaginationAction.module.css";
-import clsx from "clsx";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './UICarouselPaginationAction.module.css';
+import clsx from 'clsx';
 
 export function UICarouselPaginationAction(props) {
   return (
     <button
       className={clsx(styles.UICarouselPaginationAction, {
-        [styles["UICarouselPaginationAction--disabled"]]: props.disabled,
+        [styles['UICarouselPaginationAction--disabled']]: props.disabled,
       })}
       disabled={props.disabled}
       onClick={props.onClick}

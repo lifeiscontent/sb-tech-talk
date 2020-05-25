@@ -1,10 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { UIButton } from "../../ui";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { UIButton } from '../../ui';
 
-/**
- * @param {{ bookmarked?: boolean; canBookmark: { value: boolean; }; onBookmark: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void; children: React.ReactNode; }} props
- */
 export function BookmarkButton(props) {
   return (
     <UIButton

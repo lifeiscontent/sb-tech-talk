@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./UICarouselPagination.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './UICarouselPagination.module.css';
 
 export function UICarouselPagination(props) {
   return (

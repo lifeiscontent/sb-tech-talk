@@ -1,8 +1,8 @@
-import React from "react";
-import { UIButton } from ".";
+import React from 'react';
+import { UIButton } from '.';
 
 export default {
-  title: "UI/Button",
+  title: 'UI/Button',
   component: UIButton,
 };
 
@@ -29,7 +29,7 @@ export function Example({
 
 Example.story = {
   args: {
-    children: "Button",
-    variant: "primary",
+    children: 'Button',
+    variant: 'primary',
   },
 };

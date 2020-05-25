@@ -1,8 +1,8 @@
-import React from "react";
-import { Icon } from ".";
+import React from 'react';
+import { Icon } from '.';
 
 export default {
-  title: "Components/Icon",
+  title: 'Components/Icon',
   component: Icon,
 };
 
@@ -12,6 +12,6 @@ export function Example({ name, size }) {
 
 Example.story = {
   args: {
-    name: "r-bookmark-plus",
+    name: 'r-bookmark-plus',
   },
 };

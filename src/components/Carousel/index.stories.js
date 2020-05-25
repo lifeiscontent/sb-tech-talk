@@ -1,11 +1,11 @@
-import React from "react";
-import { Carousel, CarouselItem } from ".";
+import React from 'react';
+import { Carousel, CarouselItem } from '.';
 
 export default {
-  title: "Components/Carousel",
+  title: 'Components/Carousel',
   component: Carousel,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
   subcomponents: {
     CarouselItem,

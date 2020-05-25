@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   UICarousel,
   UICarouselFrame,
@@ -8,7 +8,7 @@ import {
   UICarouselPaginationAction,
   UICarouselPaginationStatus,
   UICarouselPaginationStatusCue,
-} from "../../ui";
+} from '../../ui';
 
 function calculateTotalPages(node) {
   return Math.max(1, Math.ceil(node.scrollWidth / node.offsetWidth));
@@ -52,10 +52,10 @@ export function Carousel(props) {
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [selectedIndex, total, totalPages]);
 
@@ -75,7 +75,7 @@ export function Carousel(props) {
       event.preventDefault();
       listRef.current.scrollTo({
         left: listRef.current.scrollLeft - listRef.current.offsetWidth,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   }
@@ -85,7 +85,7 @@ export function Carousel(props) {
       event.preventDefault();
       listRef.current.scrollTo({
         left: listRef.current.scrollLeft + listRef.current.offsetWidth,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   }

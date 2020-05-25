@@ -1,1 +1,1 @@
-export * from "./UIButton";
+export * from './UIButton';

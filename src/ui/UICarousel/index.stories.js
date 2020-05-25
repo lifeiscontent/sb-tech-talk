@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   UICarousel,
   UICarouselFrame,
@@ -8,13 +8,13 @@ import {
   UICarouselPaginationAction,
   UICarouselPaginationStatus,
   UICarouselPaginationStatusCue,
-} from ".";
+} from '.';
 
 export default {
-  title: "UI/Carousel",
+  title: 'UI/Carousel',
   component: UICarousel,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
   subcomponents: {
     UICarouselFrame,
@@ -60,7 +60,7 @@ Example.story = {
   argTypes: {
     selectedIndex: {
       defaultValue: 0,
-      control: { type: "number", min: 0, max: 2 },
+      control: { type: 'number', min: 0, max: 2 },
     },
   },
 };

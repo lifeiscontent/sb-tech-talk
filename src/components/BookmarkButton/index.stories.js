@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "..";
-import { BookmarkButton } from ".";
+import React from 'react';
+import { Icon } from '..';
+import { BookmarkButton } from '.';
 
 export default {
-  title: "Components/BookmarkButton",
+  title: 'Components/BookmarkButton',
   component: BookmarkButton,
 };
 
@@ -14,9 +14,9 @@ export function Example({ bookmarked, onBookmark, canBookmark }) {
       onBookmark={onBookmark}
       canBookmark={canBookmark}
     >
-      <Icon name={bookmarked ? "s-bookmark-minus" : "r-bookmark-plus"} />
+      <Icon name={bookmarked ? 's-bookmark-minus' : 'r-bookmark-plus'} />
       &nbsp;
-      {bookmarked ? "Remove Bookmark" : "Add Bookmark"}
+      {bookmarked ? 'Remove Bookmark' : 'Add Bookmark'}
     </BookmarkButton>
   );
 }
@@ -26,7 +26,7 @@ Example.story = {
     canBookmark: {
       defaultValue: { value: false },
       control: {
-        type: "options",
+        type: 'options',
         options: { true: { value: true }, false: { value: false } },
       },
     },
