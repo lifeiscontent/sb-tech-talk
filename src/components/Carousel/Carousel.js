@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   UICarousel,
@@ -14,38 +14,58 @@ function calculateTotalPages(node) {
   return Math.max(1, Math.ceil(node.scrollWidth / node.offsetWidth));
 }
 
-function calculateSelectedIndex(node, total) {
-  return Math.max(
-    0,
-    Math.min(
-      Math.round(
-        total * (node.scrollLeft / (node.scrollWidth - node.offsetWidth))
-      ),
-      total
-    )
-  );
+function calculatePageIndex(node) {
+  const totalPages = calculateTotalPages(node);
+  const pageWidth = node.scrollWidth / totalPages;
+
+  if (node.scrollLeft < pageWidth) return 0;
+
+  return Math.round(node.scrollLeft / pageWidth);
+}
+
+function calculateDisabledState(node, direction) {
+  if (direction === -1) {
+    return node.scrollLeft === 0;
+  } else if (direction === 1) {
+    return node.scrollLeft === node.scrollWidth - node.offsetWidth;
+  }
 }
 
 export function Carousel(props) {
-  const total = React.Children.toArray(props.children).length;
-  const listRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [totalPages, setTotalPages] = React.useState(1);
-  const pageIndex = Math.round((totalPages - 1) * (selectedIndex / total));
+  const listRef = useRef(null);
+  const [activePageIndex, setActivePageIndex] = useState(0);
+  const [leftButtonDisabled, setLeftButtonDisabled] = useState(true);
+  const [rightButtonDisabled, setRightButtonDisabled] = useState(false);
+  const [totalPages, setTotalPages] = useState(1);
 
-  React.useEffect(() => {
+  useEffect(() => {
     function handleResize() {
       if (listRef.current) {
         const nextTotalPages = calculateTotalPages(listRef.current);
-        const nextSelectedIndex = calculateSelectedIndex(
+        const nextActivePageIndex = calculatePageIndex(listRef.current);
+        const nextLeftButtonDisabled = calculateDisabledState(
           listRef.current,
-          total
+          -1
         );
-        if (totalPages !== nextTotalPages) {
+        const nextRightButtonDisabled = calculateDisabledState(
+          listRef.current,
+          1
+        );
+
+        if (nextTotalPages !== totalPages) {
           setTotalPages(nextTotalPages);
         }
-        if (selectedIndex !== nextSelectedIndex) {
-          setSelectedIndex(nextSelectedIndex);
+
+        if (nextActivePageIndex !== activePageIndex) {
+          setActivePageIndex(nextActivePageIndex);
+        }
+
+        if (nextLeftButtonDisabled !== leftButtonDisabled) {
+          setLeftButtonDisabled(nextLeftButtonDisabled);
+        }
+
+        if (nextRightButtonDisabled !== rightButtonDisabled) {
+          setRightButtonDisabled(nextRightButtonDisabled);
         }
       }
     }
@@ -57,16 +77,29 @@ export function Carousel(props) {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [selectedIndex, total, totalPages]);
+  }, [activePageIndex, leftButtonDisabled, rightButtonDisabled, totalPages]);
 
   function handleScroll(event) {
-    const nextSelectedIndex = calculateSelectedIndex(
+    const nextActivePageIndex = calculatePageIndex(event.currentTarget);
+    const nextLeftButtonDisabled = calculateDisabledState(
       event.currentTarget,
-      total
+      -1
+    );
+    const nextRightButtonDisabled = calculateDisabledState(
+      event.currentTarget,
+      1
     );
 
-    if (selectedIndex !== nextSelectedIndex) {
-      setSelectedIndex(nextSelectedIndex);
+    if (nextActivePageIndex !== activePageIndex) {
+      setActivePageIndex(nextActivePageIndex);
+    }
+
+    if (nextLeftButtonDisabled !== leftButtonDisabled) {
+      setLeftButtonDisabled(nextLeftButtonDisabled);
+    }
+
+    if (nextRightButtonDisabled !== rightButtonDisabled) {
+      setRightButtonDisabled(nextRightButtonDisabled);
     }
   }
 
@@ -99,18 +132,21 @@ export function Carousel(props) {
       </UICarouselFrame>
       <UICarouselPagination>
         <UICarouselPaginationAction
-          disabled={selectedIndex === 0}
+          disabled={leftButtonDisabled}
           onClick={handlePreviousClick}
         >
           &larr;
         </UICarouselPaginationAction>
         <UICarouselPaginationStatus>
           {Array.from({ length: totalPages }).map((_, i) => (
-            <UICarouselPaginationStatusCue key={i} active={pageIndex === i} />
+            <UICarouselPaginationStatusCue
+              key={i}
+              active={activePageIndex === i}
+            />
           ))}
         </UICarouselPaginationStatus>
         <UICarouselPaginationAction
-          disabled={selectedIndex === total}
+          disabled={rightButtonDisabled}
           onClick={handleNextClick}
         >
           &rarr;
